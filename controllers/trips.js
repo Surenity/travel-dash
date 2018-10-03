@@ -21,5 +21,32 @@ module.exports = {
     .then(()=>{
       res.redirect('/welcome');
     })
+  },
+
+  edit: (req, res)=>{
+    knex('airlines').then((airlineResults)=>{
+      knex('trips').where('id', req.params.id)
+      .then((tripResults)=>{
+          res.render('edittrip', {airlines: airlineResults, trip: tripResults[0]});
+      })
+
+    })
+
+  },
+
+  update: (req, res)=>{
+    knex('trips')
+    .where('id', req.params.id)
+    .update({
+      name: req.body.name,
+      origin: req.body.origin,
+      destination: req.body.destination,
+      airline_id: req.body.airline_id,
+      date: req.body.date,
+      user_id: req.session.user_id
+    })
+    .then(()=>{
+      res.redirect('/welcome');
+    })
   }
 }

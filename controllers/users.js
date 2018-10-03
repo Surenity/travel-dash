@@ -56,8 +56,12 @@ module.exports = {
 
   welcome: (req, res)=>{
     knex('users').where('id', req.session.user_id).then((userResults) =>{
-      knex('trips').where('user_id', req.session.user_id)
-      res.render('welcome' , {user: userResults[0]});
+      knex.select('trips.*', 'airlines.name AS airline_name').from('trips')
+      .join('airlines', 'airlines.id', 'trips.airline_id')
+      .where('user_id', req.session.user_id)
+      .then((tripResults)=>{
+        res.render('welcome' , {user: userResults[0], trips: tripResults});
+      })
     })
     .catch(error =>{
       console.error(error);

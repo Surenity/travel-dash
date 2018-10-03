@@ -18,6 +18,10 @@ module.exports = function(app){
   app.get('/trip/create', trips.build);
 
   app.post('/trip/create', trips.create);
+
+  app.get('/trip/:id', trips.edit);
+
+  app.post('/trip/:id', trips.update);
 }
 
 function authenticateUser(req, res, next){

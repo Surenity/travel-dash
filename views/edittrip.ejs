@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+
+
+    <div class="editTrip col-6">
+
+
+      <h1> Edit your Trip</h1>
+      <form action="/trip/<%= trip.id %>" method="post">
+          <input type="text" name="name" placeholder="<%= trip.name %>" required>
+          <br>
+          <input type="text" name="origin" placeholder="<%= trip.origin %>" required>
+          <br>
+          <input type="text" name="destination" placeholder="<%= trip.destination %>" required>
+          <br>
+          <select class="airlines" name="airline_id">
+            <% for(let i=0; i<airlines.length; i++){ %>
+              selected="<%=trip.airline_id %>"
+
+              <% if(airlines[i].id === trip.airline_id){ %>
+                <option value="<%= airlines[i].id  %>" selected="selected"> <%= airlines[i].name %></option>
+
+              <% } else { %>
+                <option value="<%= airlines[i].id  %>"> <%= airlines[i].name %></option>
+              <% } %>
+
+          <%  } %>
+          </select>
+          <br>
+          <input type="date" name="date">
+
+          <br>
+          <button type="submit">Update</button>
+      </form>
+
+</div>
+  </body>
+</html>

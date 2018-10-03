@@ -11,5 +11,20 @@
 
     <h1> Welcome <%= user.name %> </h1>
     <a href="/trip/create">Plan a Trip</a>
+    <hr>
+
+
+
+
+    <% for(let i=0; i<trips.length; i++){ %>
+      <h3> <%= trips[i].name %> </h3>
+      <h5> <%= trips[i].date %> </h5>
+      <a href="#"> <%= trips[i].airline_name %> </a>
+      <h5> <%= trips[i].origin %> </h5>
+      <h5> <%= trips[i].destination %> </h5>
+      <a href="/trip/<%= trips[i].id %>">Edit Trip</a>
+      <hr>
+  <%  } %>
+
   </body>
 </html>
