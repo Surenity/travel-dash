@@ -1,0 +1,18 @@
+body {
+  background-color: #D3D3D3;
+  text-align: center;
+}
+
+.login-container{
+  display: flex;
+  justify-content: center;
+  display: inline-block;
+  text-align: center;
+}
+
+.register-container{
+  display: flex;
+  justify-content: center;
+  display: inline-block;
+  text-align: center;
+}

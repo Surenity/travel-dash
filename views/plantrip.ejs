@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+
+
+
+    <div class="planTrip col-6">
+
+
+      <h1> Plan a Trip</h1>
+      <form action="/trip/create" method="post">
+          <input type="text" name="name" placeholder="Name" required>
+          <br>
+          <input type="text" name="origin" placeholder="Origin" required>
+          <br>
+          <input type="text" name="destination" placeholder="Destination" required>
+          <br>
+          <select class="airlines" name="airline_id">
+            <% for(let i=0; i<airlines.length; i++){ %>
+              <option value="<%= airlines[i].id  %>"> <%= airlines[i].name %> </option>
+          <%  } %>
+          </select>
+          <br>
+          <input type="date" name="date">
+
+          <br>
+          <button type="submit">Plan</button>
+      </form>
+
+</div>
+  </body>
+</html>
