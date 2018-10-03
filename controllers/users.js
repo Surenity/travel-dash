@@ -56,7 +56,7 @@ module.exports = {
 
   welcome: (req, res)=>{
     knex('users').where('id', req.session.user_id).then((userResults) =>{
-      knex.select('trips.*', 'airlines.name AS airline_name').from('trips')
+      knex.select('trips.*', 'airlines.name AS airline_name', 'airlines.id AS airline_id').from('trips')
       .join('airlines', 'airlines.id', 'trips.airline_id')
       .where('user_id', req.session.user_id)
       .then((tripResults)=>{

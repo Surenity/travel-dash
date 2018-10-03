@@ -1,6 +1,8 @@
 //Update the name of the controller below and rename the file.
 const users = require("../controllers/users.js")
 const trips = require("../controllers/trips.js")
+const airlines = require("../controllers/airlines.js")
+
 module.exports = function(app){
 
   app.use(createErrorArr);
@@ -22,6 +24,8 @@ module.exports = function(app){
   app.get('/trip/:id', trips.edit);
 
   app.post('/trip/:id', trips.update);
+
+  app.get('/airline/:id', airlines.show)
 }
 
 function authenticateUser(req, res, next){

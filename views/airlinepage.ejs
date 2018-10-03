@@ -2,19 +2,18 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" href="/assets/style.css">
     <title></title>
   </head>
   <body>
 
-    <h1> Welcome <%= user.name %> </h1>
-    <a href="/trip/create">Plan a Trip</a>
-    <hr>
+    <h1> I am an airline page </h1>
+    <img src="<%= airline.img_url%>" alt="Airline image">
+    <br>
+    <%= airline.name%>
+    <br>
+    <%= airline.description%>
 
-
-
+    <h1> Trips Planned </h1>
 
     <% for(let i=0; i<trips.length; i++){ %>
       <h3> <%= trips[i].name %> </h3>
@@ -22,8 +21,8 @@
       <a href="/airline/<%= trips[i].airline_id %>"> <%= trips[i].airline_name %> </a>
       <h5> <%= trips[i].origin %> </h5>
       <h5> <%= trips[i].destination %> </h5>
+      <a href="/trip/<%= trips[i].id %>">Edit Trip</a>
       <hr>
   <%  } %>
-
   </body>
 </html>
